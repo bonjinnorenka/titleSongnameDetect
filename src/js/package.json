@@ -1,0 +1,15 @@
+{
+  "name": "title_songname_detect",
+  "version": "1.0.0",
+  "description": "detect songtitle from videotitle",
+  "main": "index.ts",
+  "scripts": {
+    "build":"tsc src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^5.3.3"
+  }
+}
