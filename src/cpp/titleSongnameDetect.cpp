@@ -131,7 +131,7 @@ namespace titleSongnameDetect{
         if(!std::regex_search(title,std::wregex(L"ハロ[/／]ハワユ"))){//ハロ/ハワユ以外は基本的に曲名に/は入らない
             title = std::regex_replace(title,std::wregex(L"[/／].*"),empty_wstring);
         }
-        title = std::regex_replace(title,std::wregex(L"[｜|┊¦|\\|].*"),empty_wstring);//|以降は削除する
+        title = std::regex_replace(title,std::wregex(L"[｜|┊¦|\\|￤┋┃│┆╎║].*"),empty_wstring);//|以降は削除する
         //title = std::regex_replace(title,std::wregex(L"｜.*"),empty_wstring);//｜以降は削除する
         title = std::regex_replace(title,std::wregex(L"[ 　]{2,}.*"),empty_wstring);
         title = std::regex_replace(title,std::wregex(L"[ 　]/.*"),empty_wstring);
@@ -267,8 +267,7 @@ namespace titleSongnameDetect{
         if(!std::regex_search(title,std::regex("ハロ[/／]ハワユ"))){//ハロ/ハワユ以外は基本的に曲名に/は入らない
             title = std::regex_replace(title,std::regex("[/／].*"),"");
         }
-        title = std::regex_replace(title,std::regex("\\|.*"),"");//|以降は削除する
-        title = std::regex_replace(title,std::regex("｜.*"),"");//｜以降は削除する
+        title = std::regex_replace(title,std::regex("[｜|┊¦|\\|￤┋┃│┆╎║].*"),"");//｜以降は削除する
         title = std::regex_replace(title,std::regex("[ 　]{2,}.*"),"");//以降は削除する
         title = std::regex_replace(title,std::regex("[ 　]/.*"),"");//以降は削除する
         title = std::regex_replace(title,std::regex("[Rr]emix.*"),"");//以降は削除する
