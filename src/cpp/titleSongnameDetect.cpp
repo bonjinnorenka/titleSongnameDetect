@@ -114,6 +114,10 @@ namespace titleSongnameDetect{
         title = std::regex_replace(title, std::wregex(L"(@)?歌ってみた.*"), L" ");
         title = std::regex_replace(title, std::wregex(L"(@)?歌わせて.*"), L" ");
         title = std::regex_replace(title, std::wregex(L"(@)?うたった.*"), L" ");
+        //coverがない時はby以降を消す
+        if(title.find(L"cover")==std::wstring::npos){
+            title = std::regex_replace(title, std::wregex(L"(@)?by.*"), L" ");
+        }
         // cover, covered, covered by 以降の文字列を消す
         title = std::regex_replace(title, std::wregex(L"[cC]over(ed)?( by)?.*"), empty_wstring);
         title = std::regex_replace(title, std::wregex(L"COVER.*"), empty_wstring);
